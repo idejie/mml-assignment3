@@ -1,11 +1,51 @@
 # 第三次作业
 
 ## 主题
- 使用RNN/LSTM/Transformer实现Image Caption模型 
+使用RNN/LSTM/Transformer实现Image Caption模型 
+
 
 
 ## 作业要求
-作业提供了*不完整*的代码，需要同学们根据要求补全代码，并运行得到相应的结果。
+1. 作业提供了*不完整*的代码，需要同学们根据要求补全代码，并运行得到相应的结果。
+2. 本次作业共包含4个任务，由`3.1-RNN_Captioning`、`3.2-LSTM_Captioning`、`3.3-Transformer_Captioning`和 `3.4-CLIP_and_LM_Captioning`组成，四个任务的分值分别是 **30、15、15/40**，总分为**100**分。
+
+## 项目文件说明
+```
+├── 3.1-RNN_Captioning.ipynb # 任务3-1对应的jupyter notebook
+├── 3.2-LSTM_Captioning.ipynb # 任务3-2对应的jupyter notebook
+├── 3.3-Transformer_Captioning.ipynb # 任务3-3对应的jupyter notebook
+├── 3.4-CLIP_and_LM_Captioning.ipynb # 任务3-4对应的jupyter notebook
+├── README(本次作业说明).md #本次作业说明
+├── clip-captioner # 任务3-4对应的项目文件夹
+│   ├── __init__.py # 显式导入一些模块
+│   ├── data # 实现 image caption dataset所需的文件夹
+│   │   ├── __init__.py # 显式导入一些模块
+│   │   └── dataset.py # 实现 image caption dataset所需的文件
+│   ├── evaluate.py # 评测 image caption with clip and LM的文件
+│   ├── model # 实现 caption model 的文件夹
+│   │   ├── __init__.py # 显式导入一些模块
+│   │   ├── model.py  # 实现 caption model 的文件
+│   │   └── trainer.py # 实现train and test(validation) loop 的文件
+│   ├── requirements.txt # image caption with clip and LM所需的dependency
+│   ├── training.py # 训练的launcher
+│   └── utils # 一些工具模块实现的文件夹
+│       ├── __init__.py # 显式导入一些模块
+│       ├── config.py # 模型配置文件
+│       └── lr_warmup.py # 学习率设置文件
+├── mml # 任务3-1/3-2/3-3对应的项目文件夹
+│   ├── captioning_solver.py # 训练图像描述模型，优化参数，防止过拟合，记录最佳参数及训练历史等模块
+│   ├── captioning_solver_transformer.py # 与captioning_solver.py，主要为任务3-3中transformer做一些适配
+│   ├── classifiers # 一些基础模型实现的文件夹
+│   │   ├── rnn.py # RNN和LSTM实现的文件
+│   │   └── transformer.py # transformer实现的文件
+│   ├── coco_utils.py # 读取 coco 数据集所需的一些模块
+│   ├── gradient_check.py #  一些梯度检查等模块
+│   ├── image_utils.py # 一些图像处理的模块
+│   ├── optim.py  # 一些optimizer的实现
+│   ├── rnn_layers.py # rnn/lstm layer实现
+│   └── transformer_layers.py # transformer layer实现
+└── requirements.txt # 任务3-1/3-2/3-3对应的dependency
+```
 
 ## 作业提交内容
 (1) 本项目所有文件包括不限于`.ipynb`、`.py`, 请按原始结构提交，保证代码能重复运行
@@ -14,13 +54,5 @@
 ## 时间要求
 本次作业时间为2周，请同学们按时提交。 不接受任何形式的补交。
 
-## 其他说明
-### 环境依赖
-
-- 基础版环境请参考 `requirements.txt`，其他依赖请查看项目文件夹下的说明（`clip-captioner/requirements`）
-
-### 小规模数据集
-- 您可以从[百度云](https://pan.baidu.com/s/1kmcCuvfMUadqSAezx384Ng?pwd=mml3)下载，密码为`mml3`
-- 其他数据集，请参见`3.4-Image_Captioner_with_CLIP_and_LM.ipynb`
 
 
