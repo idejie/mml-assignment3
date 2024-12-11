@@ -14,9 +14,9 @@ import torch
 from torch.utils.data import random_split
 from tqdm import tqdm
 
-from data import ImageCaptionDataset
-from model import Net
-from utils import ConfigS, ConfigL, download_weights
+from mml.data import ImageCaptionDataset
+from mml.model import Net
+from mml.utils import ConfigS, ConfigL, download_weights
 
 parser = argparse.ArgumentParser()
 

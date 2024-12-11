@@ -116,9 +116,9 @@ class Trainer:
 
         fig, axs = plt.subplots(num_examples // 2, 2, figsize=(20, 12))
 
-        random_idx = np.random.randint(0, len(self.dataset), size=(num_examples,))
+        random_idx = np.random.randint(0, len(self.test_dataset), size=(num_examples,))
         for idx, r in enumerate(random_idx):
-            img_name, _, _ = self.dataset[r]
+            img_name, _, _ = self.test_dataset[r]
 
             img = Image.open(os.path.join(self.test_path, img_name))
 

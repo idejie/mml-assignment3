@@ -12,9 +12,9 @@ import torch.optim as optim
 from torch.utils.data import random_split
 
 import wandb
-from data import ImageCaptionDataset, get_loader
-from model import Net, Trainer
-from utils import ConfigS, ConfigL, LRWarmup
+from mml.data import ImageCaptionDataset, get_loader
+from mml.model import Net, Trainer
+from mml.utils import ConfigS, ConfigL, LRWarmup
 
 parser = argparse.ArgumentParser()
 
@@ -75,7 +75,7 @@ if __name__ == "__main__":
 
     model = Net(
         clip_model=config.clip_model,
-        clip_size=config.clip_size,
+        text_model=config.text_model,
         ep_len=config.ep_len,
         num_layers=config.num_layers,
         n_heads=config.n_heads,
@@ -102,13 +102,13 @@ if __name__ == "__main__":
         train_loader=train_loader,
         valid_loader=valid_loader,
         test_dataset=test_dataset,
-        test_path=os.path.join("data", "raw", "flickr30k_images"),
+        test_path=os.path.join("data", "raw"), # TODO: 请你修改这里为你自己的目录
         ckp_path=ckp_path,
         device=device,
     )
 
     # build train model process with experiment tracking from wandb
-    wandb.init(project="clipXgpt2 captioner", config=config.__dict__)
+    wandb.init(project="captioner", config=config.__dict__)
     wandb.watch(trainer.model, log="all")
     for epoch in range(trainer.epoch, config.epochs):
         trainer.train_epoch()
