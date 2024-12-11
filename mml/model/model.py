@@ -238,7 +238,8 @@ class Net(nn.Module):
             decoded = self.td.tokenizer.decode(tokens[:-1])
 
             decoded = decoded.strip()
-            decoded = decoded[0].upper() + decoded[1:]
+            if len(decoded)>0:
+                decoded = decoded[0].upper() + decoded[1:]
 
             return decoded, tokens
 
