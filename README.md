@@ -12,6 +12,8 @@
 2. 本次作业共包含2个任务，由`3.1-RNN_Captioning`、`3.2-Transformer_Captioning`组成，两个任务的分值分别是 **45、55**，总分为**100**分。
 
 ## 项目文件说明
+
+**注意**：本次作业涉及两套环境（`3.2-Transformer_Captioning`中的`section B`请使用`mml/requirements.txt`，其他section使用`requirements.txt`），因此建议使用conda/venv等virtual environment管理环境
 ```
 ├── 3.1-RNN_Captioning.ipynb                   # 任务3-1对应的jupyter notebook
 ├── 3.2-Transformer_Captioning.ipynb           # 任务3-2对应的jupyter notebook
