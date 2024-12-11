@@ -17,6 +17,7 @@
 ├── 3.2-Transformer_Captioning.ipynb           # 任务3-2对应的jupyter notebook
 ├── README(本次作业说明).md                      # 本次作业说明
 ├── mml                                        # 本次作业提供/需要补全的一些文件
+│   ├── requirements.txt                       # image caption with clip and LM的所需的一些dependency
 │   ├── captioning_solver.py                   # 训练图像描述模型，优化参数，防止过拟合，记录最佳参数及训练历史等模块
 │   ├── captioning_solver_transformer.py       # 与captioning_solver.py，主要为任务3-2中transformer做一些适配
 │   ├── classifiers                            # 一些基础模型实现的文件夹
