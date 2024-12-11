@@ -48,20 +48,18 @@ class Mapping(nn.Module):
         self.embed_size = embed_size
 
         self.device = device
-        # TODO:  请你实现一个TransformerEncoder，要求多层（num_layers），多头（n_heads）
-        # 禁止： 直接使用 nn.TransformerEncoder、nn.TransformerEncoderLayer、nn.MultiheadAttention
         
-        # self.transformer_encoder = nn.TransformerEncoder(
-        #     nn.TransformerEncoderLayer(
-        #         d_model=embed_size,
-        #         nhead=n_heads,
-        #         dim_feedforward=embed_size * forward_expansion,
-        #         dropout=dropout,
-        #         batch_first=True,
-        #         device=device,
-        #     ),
-        #     num_layers=num_layers,
-        # ).to(self.device)
+        self.transformer_encoder = nn.TransformerEncoder(
+            nn.TransformerEncoderLayer(
+                d_model=embed_size,
+                nhead=n_heads,
+                dim_feedforward=embed_size * forward_expansion,
+                dropout=dropout,
+                batch_first=True,
+                device=device,
+            ),
+            num_layers=num_layers,
+        ).to(self.device)
 
         self.mapper = nn.Linear(embed_size, ep_len * embed_size).to(self.device)
 
