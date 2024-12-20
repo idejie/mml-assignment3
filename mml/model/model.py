@@ -269,7 +269,7 @@ class Net(nn.Module):
         x += pos_emb
 
         res = self.td(x, attention_mask=x_mask)
-        res = torch.softmax(res, dim=2)
+        # res = torch.softmax(res, dim=2) # double softmax for ce_loss
 
         loss = self.criterion(
             res[:, self.ep_len :, :].reshape(-1, res.shape[-1]), y.reshape(-1)
