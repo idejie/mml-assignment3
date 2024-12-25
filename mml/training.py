@@ -33,7 +33,7 @@ parser.add_argument(
 
 args = parser.parse_args()
 
-config = ConfigL() if args.size.upper() else ConfigS()
+config = ConfigL() if args.size.upper() == 'L' else ConfigS()
 
 # set seed
 random.seed(config.seed)
